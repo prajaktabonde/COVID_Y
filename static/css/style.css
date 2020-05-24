@@ -2,7 +2,11 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,700|Work+Sans:300,400,500,600,700,900&display=swap");
 /* line 1, ../../Arafath/CL/january 2020/241. Medical/HTML/scss/_extend.scss */
 
-
+#slideshowImages{
+  display: flex;
+  width:100px;
+  height: 500px;
+}
 
 
 

@@ -2,8 +2,10 @@ from flask import Flask, render_template,redirect,request,url_for,session, json
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from locator import locate
-from casecount import cases
+from india_stats import current_stats
 from plots_call import plot_day
+from india_pred import pred_list
+from ml_model import pred_maha
 
 
 app = Flask(__name__)
@@ -59,16 +61,26 @@ class contactus(db.Model):
 @app.route("/")
 def home(): 
     
-    t,d,r,a=cases()                                                #prajakta
+    t, r,d, a, nc, nr, nd=current_stats()                                             
     f=plot_day()
-    return render_template('index.html',tot=t,dea=d,rec=r,act=a,folder=f)
+    pc, pd, pr, gr=pred_list()
+    predictions, growth_rate=pred_maha()
+    
+    return render_template('index.html',tot=t, dea=d, rec=r, act=a, newcases=nc, newrec=nc, newdea=nd, folder=f, pred_c=pc, pred_d=pd,
+                           pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
 
 @app.route("/index")
 def index():
     
-    t,d,r,a=cases()        
-    f=plot_day()                                                   #prajakta
-    return render_template('index.html',tot=t,dea=d,rec=r,act=a,folder=f)
+    t, r,d, a, nc, nr, nd=current_stats()        
+    f=plot_day()
+    pc, pd, pr, gr=pred_list()
+    predictions, growth_rate=pred_maha()  
+                                              
+    return render_template('index.html',tot=t,dea=d,rec=r,act=a, newcases=nc, newrec=nc, newdea=nd, folder=f, pred_c=pc, pred_d=pd,
+                           pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
 
 @app.route("/about")
 def about():

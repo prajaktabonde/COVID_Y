@@ -35,11 +35,28 @@ def generate_pred(i):
 prediction=[]
 growth_rate=[]
 current=[]
-for i in range(0,5):
-    pred,grow =generate_pred(i)
-    prediction.append(listtostr(pred))
-    growth_rate.append(grow)  
-
-
-for i in range(0,5):
-    print("Next day prediction for "+dataset.columns[i]+" is "+prediction[i]+" Case growth rate: "+growth_rate[i])
+def pred_maha():
+    for i in range(0,5):
+        pred,grow =generate_pred(i)
+        prediction.append(listtostr(pred))
+        growth_rate.append(grow)  
+    
+   
+    #for i in range(0,5):
+    #   print("Next day prediction for "+dataset.columns[i]+" is "+prediction[i]+" Case growth rate: "+growth_rate[i])
+    
+    pm=prediction[0]
+    pp=prediction[1]
+    pt=prediction[2]
+    pnag=prediction[3]
+    pnas=prediction[4]
+    
+    gm=growth_rate[0]
+    gp=growth_rate[1]
+    gt=growth_rate[2]
+    gnag=growth_rate[3]
+    gnas=growth_rate[4]
+    
+    return prediction,growth_rate
+        
+pred_maha()

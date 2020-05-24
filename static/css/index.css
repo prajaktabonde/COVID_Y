@@ -14,3 +14,9 @@
     list-style: square outside none;
     padding-bottom: 10px;
 }
+
+.expert_doctors_area{
+    display: flex;
+   
+  }
+  

@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/sealedUserStatus.css')}}">
+{% endblock %}
+
+{% block title %}
+
+<div class="quality_area">
+    <div class="container">
+        <center><h1 style="font-family: 'Roboto';">Sealed User Status</h1></center>
+        <hr width="400px">    
+        <br>
+        <div class="row justify-content-center">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Username</th>
+                            <th scope="col">Cart List</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">Delivery Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for name in usernames %}
+                          <tr>
+                            <th scope="row">{{ name }}</th>
+                            <td>
+                            {% for i in data %}
+                                {% if i['username'] == name %}                        
+                                    {{ i['description'] }}
+                                    <br>
+                                {% endif %}
+                            {% endfor %}
+                            </td>
+                            <td>
+                                {% for i in data %}
+                                    {% if i['username'] == name %}                        
+                                        {{ i['amount'] }}
+                                        <br>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {% for i in data %}
+                                    {% if i['username'] == name %}                        
+                                        {{ i['value'] }}
+                                        <br>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {% if name[0] == 'a' or name[0] == 'r' %}
+                                    <h4 style="color: red;">Not Delivered</h4>
+                                {% else %}
+                                <h4 style="color: green;">Delivered</h4>
+                                {% endif %}
+                            </td>                        
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                  
+            </div>  
+    </div>
+</div>
+
+
+
+
+    
+
+ 
+{% endblock %}

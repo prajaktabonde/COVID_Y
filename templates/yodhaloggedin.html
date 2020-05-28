@@ -1,0 +1,191 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/sealedUser.css')}}">
+{% endblock %}
+
+{% block title %}
+<div class="quality_area">
+    <h1 class="" style="text-align: center;">
+                    <font size="12"><b style="color: #032f69;  font-family: 'Calibri';">Today's time table</b></font>
+                </h1>
+                 <h2 class="" style="text-align: center;">
+                    <b style="color: #032f69;  font-family: 'Calibri';">Name: Aditya Bhatt</b>
+                </h2>
+                 <h3 class="" style="text-align: center;">
+                    <b style="color: #032f69;  font-family: 'Calibri';">Time slot: Evening</b>
+                </h3>
+                <h3 class="" style="text-align: center;">
+                    <b style="color: #032f69;  font-family: 'Calibri';">Your Area: Kharghar</b>
+                </h3>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+
+                <h1 class="" style="text-align: center;">
+                    <font size="12"><b style="color: #032f69;  font-family: 'Calibri';">Volunteer task</b></font>
+                </h1>                
+
+                <p class="lead"> </p>
+                
+            
+
+        </div>
+            <!-- <br><br><br><br>
+            <div class="row">
+                <h2>Your Requirements</h2>
+            </div>
+            <br>
+            <br>
+            <br> 
+            <div class="row">
+                <div class="col-sm-4" >
+                    <div class="card" id="card1" style="background-color: aliceblue;">
+                        <h3 class="card-header text-center " style="font-family: 'Roboto Slab';"></h3>
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted" >
+                            <font style="color: rgb(3, 74, 207); font-size: larger; font-weight: 500;" ></font>
+                                Food Supplies
+                            </font>
+                            </h6>
+                            <ol>
+                                <li class="myUserLI">
+                                    Biscuits
+                                </li>
+                                <li class="myUserLI">
+                                    Chips
+                                </li>
+                                <li class="myUserLI">
+                                Bread
+                                </li>
+                                <li class="myUserLI">
+                                Milk
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 align-items-center" style="padding-top: 80px ;">
+                    <center><button class="boxed-btn3" onclick="myFunction()" id="button1">Delivered</button></center>
+                </div>
+            </div>
+            <br>
+            <hr width="800px">
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card" id="card2" style="background-color: aliceblue;">
+                        <h3 class="card-header text-center " style="font-family: 'Roboto Slab';"></h3>
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted" >
+                            <font style="color: rgb(3, 74, 207); font-size: larger; font-weight: 500;" ></font>
+                                Emergency Supplies
+                            </font>
+                            </h6>
+                            <ol>
+                                <li class="myUserLI">
+                                    First-Aid Kit
+                                </li>
+                                <li class="myUserLI">
+                                    Masks
+                                </li>
+                                <li class="myUserLI">
+                                    Sanitizer
+                                </li>
+                                <li class="myUserLI">
+                                    Medicines
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 align-items-center" style="padding-top: 80px ;">
+                    <center><button class="boxed-btn3" onclick="myFunction2()" id="button2">Delivered</button></center>
+                </div>
+            </div> -->
+            <div class="quality_area" style="margin-top: -70px;">
+                <div class="container">
+                    <center><h1 style="font-family: 'Roboto';">Pending Delivery in your Area</h1></center>
+                    <hr width="400px">    
+                    <br>
+                    <div class="row justify-content-center">
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Cart List</th>
+                                        <th scope="col">Total Amount</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Delivery Status</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr id="aniket">
+                                        <th scope="row">aniket</th>
+                                        <td>
+                                            WHEAT <br>
+                                            WATER <br>
+                                            BISCUIT
+                                        </td>
+                                        <td>
+                                            &#8377; 175 
+                                        </td>
+                                        <td>
+                                            Shree Tower, plot no.16, sector - 20, kharghar, Navi Mumbai - 410210
+                                        </td>
+                                        <td>
+                                            <h4 style="color: red;" id="notDeliveredAn">Not Delivered</h4>
+                                            <h4 style="color: green;" id="DeliveredAn" hidden>Delivered</h4>
+                                            <button class="boxed-btn3" onclick="myFunction(aniket);">Mark as Delivered</button>
+                                        </td>                        
+                                      </tr>
+                                      <tr id="amit">
+                                          <th scope="col">amit</th>
+                                          <td>
+                                            RICE    <br>
+                                            CHIPS   <br>
+                                            VEGETABLE OIL   <br>
+                                            FLOUR
+                                          </td>
+                                          <td>
+                                            &#8377; 5615
+                                          </td>
+                                          <td>
+                                            Bhoomi Heights, plot no. 596, sector - 8, kharghar, Navi Mumbai - 410210
+                                          </td>
+                                          <td>
+                                            <h4 style="color: red;" id="notDeliveredAm">Not Delivered</h4>
+                                            <h4 style="color: green;" id="DeliveredAm" hidden>Delivered</h4>
+                                            <button class="boxed-btn3 "onclick="myFunction2(amit);">Mark as Delivered</button>
+                                          </td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                              
+                        </div>  
+                </div>
+            </div>
+    </div>
+</div>
+
+<script>  
+
+function myFunction() {
+    document.getElementById('aniket').style.backgroundColor = "#56f06d";
+    document.getElementById('notDeliveredAn').innerHTML = "Delivered";
+}
+function myFunction2() {
+    document.getElementById('amit').style.backgroundColor = "#56f06d";
+        document.getElementById('notDeliveredAm').innerHTML = "Delivered";
+}
+
+function deliveredTo(){
+    
+        
+        
+    
+}
+
+</script>
+{% endblock %}
